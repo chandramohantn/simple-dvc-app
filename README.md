@@ -19,6 +19,10 @@ dvc init
 ### Add given data to dvc
 dvc add data_given/winequality.csv
 
+### Add the project to git and then commit
+git add .
+git commit -m "Initial commit"
+
 ### Create remote project folder on github and push the local repo to the remote
 git remote add origin https://github.com/chandramohantn/simple-dvc-app.git
 git branch -M main

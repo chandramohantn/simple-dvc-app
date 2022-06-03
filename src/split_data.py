@@ -6,10 +6,16 @@ from sklearn.model_selection import train_test_split
 
 def split_and_save(config_path):
     config = read_params(config_path)
-    train_data_path = config['']['']
-    df = get_data(config_path)
-    new_cols = [col.replace(" ", "_") for col in list(df)]
-    df.to_csv(raw_data_path, sep=',', index=False, encoding='utf-8', headers=new_cols)
+    raw_data_path = config['load_data']['raw_dataset_csv']
+    train_data_path = config['split_data']['train_path']
+    test_data_path = config['split_data']['test_path']
+    test_split = config['split_data']['test_split']
+    random_seed = config['base']['random_state']
+
+    df = pd.read_csv(raw_data_path)
+    train, test = train_test_split(df, test_size=test_split, random_state=random_seed)
+    train.to_csv(train_data_path, sep=',', index=False, encoding='utf-8')
+    test.to_csv(test_data_path, sep=',', index=False, encoding='utf-8')
 
 
 if __name__ == "__main__":

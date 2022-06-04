@@ -28,12 +28,17 @@ git remote add origin https://github.com/chandramohantn/simple-dvc-app.git
 git branch -M main
 git push origin main
 
-#### Create get_data.py, load_data.py and split_data.py
+#### Create get_data.py, load_data.py, split_data.py, train_evaluate.py
 #### get_data.py will fetch the csv data and saves it to the project data folder mentioned in the params.yaml
 #### load_data.py will load the raw data and change the column headers and saves it back to the folder mentioned in the params.yaml
 #### split_data.py will split the processed data to train and test based on the split ratio mentioned in the params.yaml
+#### train_evaluate.py will train an ElasticNet model on the processed train data to train based on the parameters mentioned in the params.yaml
 python src/get_data.py
 python src/load_data.py
 python src/split_data.py
+python train_evaluate.py
 
+### Install tox, pytest and flake8
+### Write unit test cases in test_config.py
+tox
 

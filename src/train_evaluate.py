@@ -14,6 +14,7 @@ def eval_metrics(y_true, y_pred):
     r2 = r2_score(y_true, y_pred)
     return mse, mae, r2
 
+
 def train_and_evaluate(config_path):
     config = read_params(config_path)
     train_data_path = config['split_data']['train_path']
@@ -32,8 +33,8 @@ def train_and_evaluate(config_path):
     test_x = test.drop(target_col, axis=1)
 
     lr = ElasticNet(
-        alpha=alpha, 
-        l1_ratio=l1_ratio, 
+        alpha=alpha,
+        l1_ratio=l1_ratio,
         random_state=random_seed
     )
     lr.fit(train_x, train_y)

@@ -5,3 +5,6 @@ dvc[gdrive]
 tox
 pytest
 flake8
+flask
+numpy
+gunicorn
